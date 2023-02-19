@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>QR Code Generator</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>QR Code Generator</h1>
+    <form>
+      <label for="text">Text:</label>
+      <input type="text" id="text" name="text">
+      <br>
+      <button type="button" id="generate-btn" onclick="generateQRCode()">Generate QR Code</button>
+    </form>
+    <br>
+    <div id="qrcode"></div>
+  </div>
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    function generateQRCode() {
+      var text = $('#text').val();
+      var url = 'https://api.qrcodeapi.net/create-qr-code/?data=' + text + '&size=200x200';
+
+      $('#qrcode').html('<img src="' + url + '">');
+    }
+  </script>
+</body>
+</html>
